@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shake.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+{#    <!-- <script src="{% static 'js/podesavanjeVisine-Login.js' %}"></script> -->#}
+    <script src="{% static 'js/regSlika.js' %}"></script>
+
+</head>
+<body>
+    <div id="profile-nav">
+            <div style="right: 7%; position: absolute;">
+                <a href="{% url 'omiljeno' %}">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+                </a>
+            </div>
+          <div style="right: 4%; position: absolute;">
+              <a href="{% url 'korpa' %}">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+          <div style="right: 1%; position: absolute;">
+              <a href="{% url 'nalog' %}">
+                  <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+      </div>
+    <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+      <h1></h1>
+    </div>
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer0" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer1" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer2" class="shaker">
+{#    <img src="{% static 'images/dryer0.webp' %}" id="dryer3" class="shaker">#}
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer4" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer5" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer6" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer7" class="shaker">
+    <div class="content">
+        <div class="login-form row">
+            <div class="slika col-6">
+                <img src="{% static 'images/logo/Tasa logo beli.jpg' %}" id="img">
+            </div>
+            <div class="forma col-6" id="form">
+                <h1 style="color: #8ef6e4;">LOGIN</h1>
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-row">
+                       <div class="input-data">
+                          <input type="text" name="username" required id="username">
+                          <div class="underline"></div>
+                          <label for="username"><p>Korisničko ime</p></label>
+                       </div>
+                    </div>
+                    <div class="form-row">
+                       <div class="input-data">
+                          <input type="password" name="password" required id="lozinka">
+                          <div class="underline"></div>
+                          <label for="lozinka"><p>Lozinka</p></label>
+                       </div>
+                    </div>
+                    <br>
+                    <div class="row predaja">
+                        <input type="submit" value="Uloguj se" class="button-69 buttons-69-tirkizni">
+                    </div>
+                    <br>
+                    <div class="form-row submit-btn row registracija">
+                        <div class="col-6">
+                            <a href="{% url 'registracija' %}"><p>Registracija</p></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{% url 'registracijaZaposleni' %}"><p>Registracija - zaposleni</p></a>
+                        </div>
+{#                        <div class="col-6">#}
+{#                            <a href="{% url 'zaboravljena_lozinka' %}"><p>Zaboravljena lozinka</p></a>#}
+{#                        </div>#}
+                    </div>
+                    <div class="form-row submit-btn row registracija">
+                        <hr>
+                        <div class="col-12" style="display:flex; justify-content: center">
+                            <a href="{% url 'zaboravljena_lozinka' %}"><p style="font-size: 14px">Zaboravljena lozinka</p></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

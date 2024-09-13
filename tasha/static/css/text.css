@@ -1,0 +1,119 @@
+/* Uvoz fonta */
+@import url('https://fonts.cdnfonts.com/css/hippie-mods');
+
+/* Definicija fonta */
+@import url('https://fonts.cdnfonts.com/css/uchiyama');
+
+
+/* Stilovi za h1 */
+h1 {
+    font-family: 'Hippie Mods', sans-serif;
+    color: whitesmoke;
+    font-size: 70px;
+    margin: 0; /* Nije potrebno !important */
+    padding: 0; /* Nije potrebno !important */
+}
+
+/* Stilovi za p */
+p {
+    font-family: "Outfit", sans-serif;
+    font-size: 17px; /* Ispravljena sintaksa */
+    font-weight: 300; /* Ispravljena sintaksa */
+}
+
+/* Stilovi za h3 */
+h3 {
+    font-family: 'Uchiyama', sans-serif;
+    font-weight: bold;
+    color: #8ef6e4;
+}
+
+/* Stilovi za h3::before pseudo-element */
+.h3-index::before {
+    content: ""; /* Dodajte sadržaj pseudo-elementu */
+    display: block; /* Postavite pseudo-element kao blok */
+    height: 7px; /* Postavite visinu pseudo-elementa */
+    background: none; /* Postavite pozadinu pseudo-elementa */
+    width: 100%;
+    border-style: dotted;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-color: #430A5D;
+}
+
+.h3-index::after {
+    content: ""; /* Dodajte sadržaj pseudo-elementu */
+    display: block; /* Postavite pseudo-element kao blok */
+    height: 7px; /* Postavite visinu pseudo-elementa */
+    background: none; /* Postavite pozadinu pseudo-elementa */
+    width: 100%;
+    border-style: dotted;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-color: #430A5D;
+}
+
+/*stilovi za h2*/
+h2 {
+    font-family: 'Uchiyama', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.h2-black {
+    color: black !important;
+}
+
+.h2-index::after {
+    content: "";
+    display: block;
+    height: 7px;
+    background-color: #B51B75; /* Set a background color */
+    width: 100%;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.naslov {
+    padding: 40px;
+}
+a:hover {
+    color: #B51B75;
+}
+
+h4, h5 {
+    font-family: "Outfit", sans-serif;
+}
+
+.podnaslov{
+    color: #b51b75;
+}
+
+.podnaslov2{
+    color: #430a5d;
+}
+
+.podnaslov3{
+    color: #e178c5;
+}
+
+.podnaslov4{
+    color: #b51b75;
+    font-family: 'Hippie Mods', sans-serif;
+    font-size: 25px;
+}
+
+.podnaslov5{
+    color: #EB73A9;
+    font-family: 'Hippie Mods', sans-serif;
+    font-size: 25px;
+}
+
+.opis{
+    font-family: 'Uchiyama', sans-serif;
+
+}

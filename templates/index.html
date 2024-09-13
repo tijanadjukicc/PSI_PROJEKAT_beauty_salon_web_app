@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taša</title>
+    {% load static %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+    
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shake.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+
+    <!-- <script src="js/shake.js"></script> -->
+    <style>
+        @keyframes wave {
+            0% {
+                d: path("M0,32L80,53.3C160,75,320,117,480,117.3C640,117,800,75,960,53.3C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z");
+            }
+            50% {
+                d: path("M0,42L80,63.3C160,85,320,127,480,127.3C640,127,800,85,960,63.3C1120,42,1280,42,1360,42L1440,42L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z");
+            }
+            100% {
+                d: path("M0,32L80,53.3C160,75,320,117,480,117.3C640,117,800,75,960,53.3C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z");
+            }
+        }
+
+        .wavy-svg .top-line {
+            animation: wave 5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+      <div id="profile-nav">
+            <div style="right: 7%; position: absolute;">
+                <a href="{% url 'omiljeno' %}">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+                </a>
+            </div>
+          <div style="right: 4%; position: absolute;">
+              <a href="{% url 'korpa' %}">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+          <div style="right: 1%; position: absolute;">
+              <a href="{% url 'nalog' %}">
+                  <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+      </div>
+      <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="header">
+            <h1>
+                VAŠ <br>
+            </h1>
+            <table class="omiljeni-vreme">
+                <tr>
+                    <td>
+                        <h1 style="color: #B51B75; top: 0;">
+                            OMILJENI <br>
+                        </h1>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <h2 class="h2-index">
+                            Pon-Ned <br>
+                            9:00 - 19:00
+                        </h2>
+                    </td>
+                </tr>
+            </table>
+            <h1 style="top: 0;">
+                Beauty Corner <br>
+            </h1>
+            
+            <a href="{% url 'oNama' %}"><button class="button-69 buttons-69-tirkizni" role="button">O nama</button></a>
+
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer0" class="shaker">
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer1" class="shaker">
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer2">
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer3" class="shaker">
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer4">
+            <img src="{% static 'images/dryer0.webp' %}" id="dryer5">
+        </div>
+        <div class="wavy-div row">
+            <svg class="wavy-svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 320">
+                <defs>
+                    <filter id="top-shadow" x="0" y="0" width="200%" height="200%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                        <feOffset in="blur" dx="0" dy="-5" result="offsetBlur"/>
+                        <feFlood flood-color="black" flood-opacity="0.5"/>
+                        <feComposite in2="offsetBlur" operator="in"/>
+                        <feMerge>
+                            <feMergeNode/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path class="top-line" fill="white" fill-opacity="1" d="M0,32L80,53.3C160,75,320,117,480,117.3C640,117,800,75,960,53.3C1120,32,1280,32,1360,32L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z" filter="url(#top-shadow)"></path>
+            </svg>
+            <div class="wavy-content row">
+                <div class="row">
+                    <div class="col-6">
+                        <h1 style="color: #430A5D;">
+                            KAKO JE <br>
+                            POČELA NAŠA <br>
+                            <span style="background-color: #8ef6e4; border-radius: 15px;">
+                                PRIČA?
+                            </span>
+                        </h1>
+                    </div>
+                    <div class="col-6">
+                        <p class="p-content">
+                            Život je kao platno, a svako lice je jedinstveno remek-delo <br> koje čeka da bude otkriveno. U srcu grada, užurbanih <br>ulica i živopisnih boja, leži ideja - kozmetički salon koji nije <br>samo mesto za negu, već oaza lepote i <br>samopouzdanja.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <br><br>
+                        <h3 class="h3-index">
+                            SA VAMA KROZ SVE BITNE <br>
+                            ŽIVOTNE TRENUTKE
+                        </h3>
+                        <p class="p-content">
+                            Istražite ponudu naših usluga.
+                        </p>
+                        <a href="{% url 'cenovnik' %}"><button class="button-69" role="button">Usluge</button></a>
+                    </div>
+                    <div class="col-8 slika-wrapper">
+                        <img src="{% static 'images/animatedGirl0.png' %}" class="img-fluid mx-auto d-block" alt="Slika">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row najbolje-ocenjen-proizvod">
+            <div class="col-6">
+                <img src="{% static 'images/proizvodi/slika_' %}{{ proizvod.idp }}.jpg">
+            </div>
+            <div class="col-6 opis">
+                <h2>{{ kategorija.naziv }}</h2>
+                <h1>{{ proizvod.naziv }}</h1>
+                <br>
+                <p class="p-content opis-proizvoda">
+                    {{ proizvod.opis }}
+                </p>
+                <br>
+                <table class="cena-i-ocena-proizvoda">
+                    <tr>
+                        <td class="cena">CENA <br> {{ proizvod.cena }}din</td>
+                    </tr>
+                </table>
+                <table class="dugmici-red">
+                    <tr>
+                        <td>
+                            <a href="{% url 'jedanProizvod' proizvod.idp %}">
+								<button class="button-69 buttons-69-tirkizni" role="button">Proizvod</button>
+							</a>                        
+                        </td>
+                        <td></td>
+                        <td>
+                            <button class="button-69" role="button">Kupi</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row najbolje-ocenjen-zaposleni">
+            <div class="col-6 opis">
+                <h2>NAJBOLJE OCENJEN ZAPOSLENI</h2>
+                <h1 class="ime-i-prezime">{{ zaposleni.imeprezime }}</h1>
+                <br>
+                <p class="p-content opis-zaposlenog">
+                    Naš stručnjak za lepotu je osoba koju su naši dragi klijenti izabrali zbog izuzetne posvećenosti i veština. 
+                    Njihovo bogato iskustvo u kozmetičkoj industriji obuhvata širok spektar usluga, od tretmana lica do masaža, 
+                    depilacije, manikira i pedikira. Svaki korak u pružanju usluga obavlja se s ljubavlju i pažnjom, jer naš 
+                    stručnjak zna da je svaki klijent poseban i zaslužuje vrhunsku negu. <br><br>
+
+                    Ono što nasu stručnjaka čini posebnim jeste činjenica da su ga sami klijenti izabrali. Njihovo oduševljenje njegovim
+                    radom neizmerno je, što potvrđuje njegovu izuzetnu sposobnost da pruži ne samo uslugu, već i iskustvo. Njegova posvećenost 
+                    detaljima, ljubaznost i pažnja osiguravaju da svaki korisnik našeg salona bude oduševljen. <br><br>
+
+                    Zahvaljujući poverenju i podršci naših klijenata, naš stručnjak je postao ključna figura u našem salonu. Njegova strast 
+                    prema lepoti i stalno usavršavanje u novim tehnikama osiguravaju da naši klijenti uvek dobijaju vrhunsku uslugu koja premašuje njihova očekivanja.
+                </p>
+                <br>
+                <table class="ocena-zaposlenog">
+                    <tr>
+                        <td class="ocena">OCENA <br> {{ zaposleni.ocena }}</td>
+                    </tr>
+                </table>
+                <a href="{% url 'pojedinacniZaposleni' zaposleni.idz %}" class="read-more" id="vise1">
+                    <button class="button-69" role="button" id="vise1">Više</button>
+                </a>
+            </div>
+            <div class="col-6">
+                <img src="{% static 'images/zaposleni/' %}{{ zaposleni.slika }}">
+            </div>
+        </div>
+        <!-- <div class="footer row">
+            <div class="footer-content">
+
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>

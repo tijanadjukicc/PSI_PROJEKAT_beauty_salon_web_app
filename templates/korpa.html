@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korpa</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/proizvodi.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/korpa.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+    <script src="{% static 'js/brisanjeProzivoda.js' %}"></script>
+{#    <script src="{% static 'js/korpa.js' %}"></script>#}
+
+  </head>
+<body>
+    <div id="profile-nav">
+            <div style="right: 7%; position: absolute;">
+                <a href="{% url 'omiljeno' %}">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+                </a>
+            </div>
+          <div style="right: 4%; position: absolute;">
+              <a href="{% url 'korpa' %}">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+          <div style="right: 1%; position: absolute;">
+              <a href="{% url 'nalog' %}">
+                  <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+      </div>
+    <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+      <h1>
+       KORPA
+      </h1>
+    </div>
+    <div class="content2">
+    <div class="row korpa">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h2 class="podnaslov3"><b>Moja korpa</b></h2></div>
+                    <div class="col align-self-center text-right text-muted"><span id="total-items">{{ cart_items|length }} artikla</span></div>
+                </div>
+            </div>
+            {% for item in cart_items %}
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="{% static 'images/proizvodi/slika_' %}{{ item.proizvod.idp }}.jpg"></div>
+                    <div class="col">
+                        <div class="row text-muted">{{ item.proizvod.naziv }}</div>
+                        <div class="row">{{ item.proizvod.opis }}</div>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'update_cart' item.proizvod.idp 'decrease' %}" class="decrease">-</a>
+                        <span class="border quantity">{{ item.broj_proizvoda }}</span>
+                        <a href="{% url 'update_cart' item.proizvod.idp 'increase' %}" class="increase">+</a>
+                    </div>
+                    <div class="col">&euro; <span class="price">{{ item.cena_ukupna }}</span> <a href="{% url 'delete_from_cart' item.proizvod.idp %}" class="close">&#10005;</a></div>
+                </div>
+            </div>
+            {% endfor %}
+            <br>
+            <article>
+                <a href="{% url 'proizvodi' %}" class="read-more">
+                    Nastavi kupovinu <span class="sr-only">about this is some title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </article>
+        </div>
+        <div class="col-md-4 summary">
+            <div><h2><b>Porudžbina</b></h2></div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;"><h2 class="podnaslov2">Broj artikala <span id="item-count">{{ cart_items|length }}</span></h2></div>
+                <div class="col text-right"><h2 class="podnaslov2">&euro; <span id="total-price">{{ total_price }}</span></h2></div>
+            </div>
+            <form action="{% url 'finalize_order' %}" method="post" id="order-form">
+                {% csrf_token %}
+                <p><h2>POŠTARINA</h2></p>
+                <select name="postarina" id="shipping-select">
+                    <option class="text-muted" value="0">Preuzmi u salonu- 0.00din</option>
+                    <option class="text-muted" value="200">Standardna- 200.00din</option>
+                </select>
+                <p><h2>POPUST</h2></p>
+                <input type="text" name="discount_code" id="discount-code" placeholder="Unesite kod za popust">
+                <button type="button" id="check-discount" class="button-74">Proveri kod</button>
+                <div id="discount-feedback" class="{{ discount_feedback_class }}">{{ discount_feedback }}</div>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col"><h2 class="podnaslov3">TOTAL PRICE</h2></div>
+                    <div class="col text-right"> <h2 class="podnaslov3">&euro; <span id="final-price">{{ total_price }}</span></h2></div>
+                </div>
+                {% if cart_items %}
+                    <button class="button-74 button-74-kupi-ljubicasti" role="button">Naruči</button>
+                {% else %}
+                    <button class="button-74 button-74-kupi-ljubicasti" role="button" disabled>Naruči</button>
+                    <hr>
+                    <p>Vaša korpa je prazna!!!</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+    <script>
+        document.getElementById('check-discount').addEventListener('click', function() {
+            const discountCode = document.getElementById('discount-code').value;
+            const feedbackElement = document.getElementById('discount-feedback');
+            const totalPriceElement = document.getElementById('total-price');
+            const finalPriceElement = document.getElementById('final-price');
+            let totalPrice = parseFloat(totalPriceElement.textContent);
+
+            if (discountCode) {
+                fetch(`/validate_discount_code/?discount_code=${discountCode}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        feedbackElement.textContent = data.message;
+                        feedbackElement.className = data.valid ? 'text-success' : 'text-danger';
+
+                        if (data.valid) {
+                            const discount = data.discount;
+                            const discountedPrice = totalPrice * (1 - discount / 100);
+                            finalPriceElement.textContent = discountedPrice.toFixed(2);
+                        }
+                    });
+            } else {
+                feedbackElement.textContent = 'Please enter a discount code.';
+                feedbackElement.className = 'text-danger';
+            }
+        });
+
+        document.getElementById('shipping-select').addEventListener('change', function() {
+            const shippingCost = parseInt(this.value);
+            const totalPriceElement = document.getElementById('total-price');
+            const finalPriceElement = document.getElementById('final-price');
+            let totalPrice = parseFloat(totalPriceElement.textContent);
+            let discountedPrice = parseFloat(finalPriceElement.textContent);
+            const discount = totalPrice - discountedPrice; // Calculate the discount amount
+
+            // Update the final price considering shipping cost and discount
+            finalPriceElement.textContent = (totalPrice + shippingCost - discount).toFixed(2);
+        });
+    </script>
+  </div>
+</body>
+</html>

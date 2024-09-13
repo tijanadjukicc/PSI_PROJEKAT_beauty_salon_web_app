@@ -1,0 +1,40 @@
+
+  #date-time-form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  select {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .time-slot {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .time-slot.selected {
+    background-color: #e74c3c;
+  }
+
+  #reserve-button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }

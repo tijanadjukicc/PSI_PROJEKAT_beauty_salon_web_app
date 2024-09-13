@@ -1,0 +1,54 @@
+.novi-proizvod {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7000;
+    background-color: rgba(0, 0, 0, 0.308);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10%;
+}
+
+.novi-proizvod-content {
+    border-radius: 40px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    padding: 0 !important;
+    bottom: 2%;
+}
+
+.slika {
+    height: auto;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    z-index: 7001;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.slika img{
+    height: 100%;
+    border-radius: 40px;
+    width: 100%;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    margin: 0 !important;
+}
+
+.form {
+    height: auto !important;
+    background-color: white !important;
+    width: 50% !important;
+    border-radius: 40px;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    padding: 70px;
+    box-shadow: rgba(17, 17, 26, 0.1) 8px 8px 24px, rgba(17, 17, 26, 0.1) 16px 16px 56px, rgba(17, 17, 26, 0.1) 24px 24px 80px;
+}

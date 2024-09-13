@@ -1,0 +1,26 @@
+{% extends 'nalog.html' %}
+{% block izmena %}
+        <div class="izmeni-wrapper" id="izmeni-wrapper">
+        <div class="izmeni">
+            <a href="{% url 'nalog' %}" class="iks">
+                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+            </a>
+            <div class="row">
+                <h2 class="h2-black promena-h2">DA LI STE SIGURNI?</h2>
+            </div>
+            {{ potvrda }}
+            <div class="row">
+                <div class="col-6">
+                    <a href="{% url 'otkazivanjeTermina' idrez %}">
+                        <button class="button-69 buttons-69-tirkizni-manji" role="button">DA</button><br><br>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="{% url 'nalog' %}">
+                        <button class="button-69 buttons-69-roze-manji" role="button">NE</button><br><br>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+za dunju :*
+------------
+- imas u mojim sablonima jednu html stranicu na kojoj mozes da vdis sve fontove koji postoje u txt.css-u i mozes da vidis sve varijante dugmica koje postoje, mislim da je tako preglednije da vidis sta je sta
+    ja cu tamo svaki tekst na stranici nazivati onako kako se zove on tj koji je stil u pitanju i dodati pored ako njegova odredjena varijanta ima neku dodatnu klasu tako da ne moras da kopas po kodu
+    -> u ovom folderu ces imati i pregled boja tako da ti bude lakse :*
+- ja sam na stranicama koje ti treba da dovrsis stavila div koji pripada klasi content u kome ti treba da otkucas svoj deo
+
+-rezime toga sta smo se dog za tebe, ako nije tako reci mi:
+    -> cenovnik
+    -> omiljeno
+    -> korpa
+    ----------------
+    -> ako bi pls mogla i stranicu za pojedinacan proizvod bila bih zahvalnaaaa; pojma nemam kako bismo to tacno mogle..ako zelis mozemo to i zajedno posto mislim da bi bilo lepo da se napravi nesto slatko i malo drugacije od sablona za sve ostale stranice
+        -- vrv da ovde moze da se nadje i neki interesantan sablon, ako nadjem neku ideju poslacu ti
+    -> stranicu za musterije; nju mozes da iskopiras full sa one za zaposlene
+        -- ovde pogledaj koje dodatne mogucnosti mozda treba da ima admin, a koje zaposleni pa ih sve sad stavi i kasnije cemo da sklanjamo ono sto nam ne treba u zavisnosti od toga ko je ulogovan
+
+- ove stranice, cenovnik, omiljeno i korpa neka budu staticke sada pa njih zajedno mozemo dinamicki posle da popunjavamo u java scriptu
+- ako ti zatreba neki js ili css imas posebne foldere za njih; gledaj da ih pravis sto opstijim da lako mozemo da ih opet nege ukljucimo takod a nema posle puno cimanja sa kopiranjem i slicno
+
+- rezime toga sta ja treba da odradim; ispravi me pls ako sam nesto zaboravila:
+    -> da dovrsim stranicu nalog.html
+        -- da je lepo uredim, da dodam ono za biranje termina kod zaposlenog i slicno
+    -> stranicu o nama
+    -> dugmice za brisanje zaposlenih i da omogucim da rade; to je bukvalno copy paste
+    -> dugmice koji se javljaju kod admina itd
+
+- zajednicki deo:
+    -> js za dodavanje u korpu/omiljeno/brisanje proizvoda 
+        -- ovo bismo mozda mogle da pamtimo i u cookijima; mozemo da pitamo jovana i janka
+    -> js za dodavanje prozivoda na stranicu sa proizvodima kada se novi proizvod ubaci
+    -> ispisivanje gresaka ako neki deo forme nije popunjen ili ako nesto drugo nije okej
+    -> da se sve dobro ispovezuje
+    -> da se po kreiranju korisnika on dodaje na stranicu sa svim korisnicima
+    -> ono sve za platu kod zaposlenih
+    -> u sustini da ispoliramo sve i da isproveravamo ssu-ove da bismo videle da li ista fali 
+---------------------------------------------------------------
+jebem li ga, ispade kao da ima puno vise posla, mozda cemo morati da ukljucimo i jovana i janka u nekom trenutku..oni bi mozda mogli da se prikljuce kada budemo ono zajednicko radili
+to je to u sustini, ne znam da li imam ista da dodam, srecan rad zelim :):******************

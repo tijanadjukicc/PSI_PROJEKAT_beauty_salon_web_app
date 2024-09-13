@@ -1,0 +1,1 @@
+1. sve sto pripada klasi .admin ima neke posebne elemente ciju vidljivost treba omoguciti samo prilikom pristupa web aplikaciji administratorskim profilom

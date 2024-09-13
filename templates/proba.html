@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proba</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/checkbox-radio.css' %}">
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+</head>
+<script>
+    $(document).ready(function() {
+        $('#id_zaposleni label').addClass('zaposleniOption');
+
+        $('#id_tretmani').change(function() {
+            let selectedOption = $(this).find(':selected');
+            let selectedParsed = selectedOption.text().split(' - ');
+            let kategorijaTretmana = selectedParsed[0]
+            let idTretmana = $(this).val() //ovo mozda treba da se prebaci u int!!!!
+
+            let regexKategorijaTretmana = new RegExp(kategorijaTretmana)
+
+            $('.zaposleniOption').hide()
+            $(".zaposleniOption").each(function() {
+                var value = $(this).find('input').val();
+                console.log(value)
+                if (regexKategorijaTretmana.test(value)) {
+                    $(this).show();
+                }
+            });
+        });
+    });
+    </script>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{forma.as_p}}
+        <input type="submit" value="primeni" class = "button-81">
+    </form>
+</body>
+</html>

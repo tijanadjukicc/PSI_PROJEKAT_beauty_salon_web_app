@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omiljeno</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="images/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/omiljeno.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+    <script src="{% static 'js/brisanjeProzivoda.js' %}"></script>
+
+  </head>
+<body>
+    <div id="profile-nav">
+        <div style="right: 7%; position: absolute;">
+            <a href="{% url 'omiljeno' %}">
+                <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+      <div style="right: 4%; position: absolute;">
+          <a href="{% url 'korpa' %}">
+              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+      <div style="right: 1%; position: absolute;">
+          <a href="{% url 'nalog' %}">
+              <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+    </div>
+    <nav id="menu">
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'index' %}">Početna</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'zaposleni' %}">Zaposleni</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'oNama' %}">O nama</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'cenovnik' %}">Cenovnik</a>
+        </div>
+    </div>
+    </nav>
+    <div class="naslov">
+      <h1>
+        OMILJENO 
+      </h1>
+    </div>
+    <div class="content">
+        <div class="kartice-proizvoda">
+            <section class="articles">
+                {% for fav in favorites %}
+                <article id="kartica{{ forloop.counter }}" class="admin">
+                    <a href="{% url 'remove_from_favorites' fav.proizvod_idp.idp %}" class="iks">
+                        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                        <div class="hover-text">ukloni iz omiljenih</div>
+                    </a>
+                    <div class="article-wrapper">
+                        <figure>
+                            <img src="{% static 'images/proizvodi/slika_' %}{{ fav.proizvod_idp.idp }}.jpg" alt="slikaProizvoda" />
+                        </figure>
+                        <div class="article-body">
+                            <h3 class="naziv h2-black">{{ fav.proizvod_idp.naziv }}</h3>
+                            <p>{{ fav.proizvod_idp.opis }}</p>
+                            <table class="ocena-i-cena">
+                                <tr>
+                                    <td class="cena">
+                                        <h3 style="color: black;">
+                                            CENA<br>{{ fav.proizvod_idp.cena }}din
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <hr>
+                            <div class="ocena-i-cena-dugmici">
+                                <button class="button-69 buttons-69-tirkizni-manji" role="button">Kupi</button>
+                                <a href="#" class="read-more">
+                                    Više <span class="sr-only">about this is some title</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

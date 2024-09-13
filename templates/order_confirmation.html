@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/korpa.css' %}">
+    <style>
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .naslov h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+        .button-74 {
+            margin-top: 2rem;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="naslov">
+            <h1>Potvrda Kupovine</h1>
+        </div>
+        <div class="content2">
+            <h2>Hvala Vam na porudzbini!</h2>
+            <a href="{% url 'index' %}" class="button-74 button-74-kupi-ljubicasti" role="button">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

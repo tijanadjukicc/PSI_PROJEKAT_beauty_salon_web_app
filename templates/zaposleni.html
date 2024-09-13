@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaposleni</title>
+    {% load static %}
+    {% load custom_filters %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+    
+    <link rel="icon" type="images/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <!-- <link rel="stylesheet" href="css/proizvodi.css"> -->
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/zaposleni.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchBox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkbox-radio.css' %}">
+    <!--<link rel="stylesheet" href="css/novi-proizvod.css">-->
+    
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    
+    <script src="{% static 'js/rezervacija.js' %}"></script>
+    <script src="{% static 'js/searchBox.js' %}"></script>
+    <script src="{% static 'js/sortiranje-ocena-zaposleni.js' %}"></script>
+    <script src="{% static 'js/zaposleni.js' %}"></script>
+
+</head>
+<body>
+        <div id="profile-nav">
+            <div style="right: 7%; position: absolute;">
+                <a href="{% url 'omiljeno' %}">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+                </a>
+            </div>
+          <div style="right: 4%; position: absolute;">
+              <a href="{% url 'korpa' %}">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+          <div style="right: 1%; position: absolute;">
+              <a href="{% url 'nalog' %}">
+                  <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+      </div>
+      <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+      <h1>
+        UPOZNAJTE NAS
+      </h1>
+    </div>
+        <div class="row search-wrapper">
+        <div class="flexbox col-6">
+            <div class="search">
+                <div>
+                    <!-- Visible input field -->
+{#                    <input type="text" id="visible-search" placeholder="Search . . ." class="form-control">#}
+                    <form id="search-form" method="POST" action="{% url 'zaposleni' %}">
+                        <div id="formaPretraga">
+                            {% csrf_token %}
+                            {{ formaSearch }}
+                        </div>
+                        <div id="search-button-wrapper" style="display: block; margin-left: 15px">
+                            <input type="submit" value="pretraži" class = "button-69 buttons-69-roze-manji">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="filter col-6">
+{#            <button class="button-69 buttons-69-tirkizni-manji admin" id="dodaj-novi-dugme" role="button">#}
+{#                <p>dodaj novi</p>#}
+{#            </button>#}
+            <i class="fa fa-filter fa-2x" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    
+    <div id="filter-menu">
+      <h2 style="color: black;">Filtrirajte pretragu</h2>
+      <hr>
+        <div class="filter-columns">
+{#            FILTRIRANJE PO KATEGORIJI#}
+            <div class="vrste-proizvoda">
+                <form method="POST" action="{% url 'zaposleni' %}">
+                    {% csrf_token %}
+                    {{ formaKategorije.as_p }}
+                    <div class="row button-filter-wrapper">
+{#                        <button class="button-69 buttons-69-roze-manji" type="submit"><p>primeni</p></button>#}
+                        <input type="submit" value="primeni" class="button-69 buttons-69-roze-manji" style="text-align: center">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content content-zaposleni">
+        {% if zaposleni %}
+            {% for zap in zaposleni %}
+                        <div class="col-2 card-col" id="zaposleni0">
+                            <div class="card">
+                                <img src="{% static 'images/zaposleni/' %}{{ zap.slika }}" class="slikaZaposlenog">
+                                <p class="zanimanje">{{ zap.zanimanje }}</p>
+                                <h2 class="ime h2-black">
+                                    {{ zap.imeprezime }}
+                                </h2>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            {% with zap.korisnik_id as id %}
+                                                {% if ocene|get_val:id !=  0 %}
+                                                    <p class="ocena">OCENA: {{ ocene|get_val:id }}</p>
+                                                {% else %}
+                                                <p class="ocena">OCENA: -</p>
+                                                {% endif %}
+                                            {% endwith %}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a href="{% url 'pojedinacniZaposleni' zap.idz %}" class="read-more" id="vise1">
+                                    <button class="button-81" role="button" id="vise1">Više</button>
+                                </a>
+                            </div>
+                        </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+  </div>
+</body>
+</html>

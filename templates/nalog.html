@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalog</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/kalendar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/izmeni.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+    <script src="{% static 'js/rezervacija.js' %}"></script>
+    <script src="{% static 'js/radio.js' %}"></script>
+    <script src="{% static 'js/kalendar.js' %}"></script>
+    <script src="{% static 'js/nalog.js' %}"></script>
+
+{#    DINAMICKO MENJANJE SLIKE -> isplata plate zaposlenima#}
+    <script>
+    $(document).ready(function() {
+        $('#id_zaposleni').change(function() {
+            var selectedIdz = $(this).val();
+            var imageUrl = "{% static 'images/zaposleni/zaposleni_' %}" + selectedIdz + ".jpg";
+            $('#dynamicImage').attr('src', imageUrl);
+        });
+
+        $('#id_zaposleniZak label').addClass('zaposleniOption');
+
+        $('#id_tretmani').change(function() {
+            let selectedOption = $(this).find(':selected');
+            let selectedParsed = selectedOption.text().split(' - ');
+            let kategorijaTretmana = selectedParsed[0]
+            let idTretmana = $(this).val() //ovo mozda treba da se prebaci u int!!!!
+
+            let regexKategorijaTretmana = new RegExp(kategorijaTretmana)
+
+            $('.zaposleniOption').hide()
+            $(".zaposleniOption").each(function() {
+                var value = $(this).find('input').val();
+                console.log(value)
+                if (regexKategorijaTretmana.test(value)) {
+                    $(this).show();
+                }
+            });
+        });
+    });
+    </script>
+
+</head>
+<body>
+    <div id="profile-nav">
+        <div style="right: 7%; position: absolute;">
+            <a href="{% url 'omiljeno' %}">
+                <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+      <div style="right: 4%; position: absolute;">
+          <a href="{% url 'korpa' %}">
+              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+      <div style="right: 1%; position: absolute;">
+          <a href="{% url 'nalog' %}">
+              <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+    </div>
+    <nav id="menu">
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'index' %}">Početna</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'zaposleni' %}">Zaposleni</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'oNama' %}">O nama</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'cenovnik' %}">Cenovnik</a>
+        </div>
+    </div>
+    </nav>
+    <div class="naslov">
+        <h1>MOJ NALOG</h1>
+    </div>
+        {% block izmena %}
+            {{ izmeni }}
+        {% endblock %}
+    <div class="content">
+        <div class="w3-padding-large" id="main">
+            <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+                <!-- The Grid -->
+                <div class="w3-row">
+                    <!-- Left Column -->
+                    <div class="w3-col m3">
+                        <!-- Profile -->
+                        <div class="w3-card w3-round w3-white">
+                            <div class="w3-container">
+                                {% if adminje != '1'%}
+                                    <h4 class="w3-center"><p>Korisnicki profil</p></h4>
+                                    <p class="w3-center"><img src="{% static 'images/profilneRazne/profilnaLjubicasta.png' %}" class="w3-circle" style="height:146px;width:146px" alt="Avatar"></p>
+                                    <hr>
+                                    <p><i class="fa fa-address-card-o fa-fw w3-margin-right w3-text-theme"></i> {{ korisnik.korisnickoime }} <a href="{% url 'izmenaKorime' %}"><i class="fa fa-pencil"></i></a></p>
+                                    <p><i class="fa fa-envelope-o fa-fw w3-margin-right w3-text-theme"></i> <a href="mailto:nekMail@gmail.com">{{ korisnik.email }}</a> <a href="{% url 'izmenaEmail' %}"><i class="fa fa-pencil"></i></a></p>
+                                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme" aria-hidden="true"></i> <a href="tel:{{ korisnik.telefon }}" style="color: black;">{{ korisnik.telefon }}</a> <a href="{% url 'izmenaTelefon' %}"><i class="fa fa-pencil"></i></a></p>
+                                    <p><i class="fa fa-key fa-fw w3-margin-right w3-text-theme"></i><a href="{% url 'izmenaLozinka' %}">Promena lozinke</a></p>
+                                {% endif %}
+                                <p><a href="{% url 'logout' %}" class="button-81">Izloguj se</a></p>
+                            </div>
+                        </div>
+                        	
+                        <br>
+
+{#                        <!--  -->#}
+{#                        <div class="w3-card w3-round w3-white w3-hide-small">#}
+{#                            <div class="w3-container">#}
+{#                                <a href="{% url 'izmenaLozinka' %}" class="button-69 buttons-69-tirkizni">Promeni lozinku</a>#}
+{#                                <p></p>#}
+{#                                <a href="{% url 'logout' %}" class="button-69 buttons-69-tirkizni">Izloguj se</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <br>#}
+                    </div>
+
+                    <!-- Middle Column -->
+                    <div class="w3-col m7">
+                        <div class="w3-row-padding">
+                            <div class="w3-col m12">
+                                <div class="w3-card w3-round w3-white">
+                                    <div class="w3-container w3-padding">
+                                        <h6 class="w3-opacity"><p>Ocenite prethodnu uslugu:</p></h6>
+                                        {% if zaposleni %}
+                                            <div class="zaposleni-info">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="col-6">
+                                                                <img src="{% static 'images/zaposleni/zaposleni_'%}{{ zaposleni.idz }}.jpg" class="slikaZaposlenog" style="border-radius: 100%; height: 200px; width: 200px; border: 2px solid white;" alt="Slika Zaposlenog">
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>
+                                                            <div class="col-6">
+                                                                <h3>{{ zaposleni.imeprezime }}</h3>
+                                                                <p>Zanimanje: {{ zaposleni.zanimanje }}</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="row dole">
+                                                <div class="col-12">
+                                                    <form method="POST" action="{% url 'nalog' %}">
+                                                        {% csrf_token %}
+                                                        <div class="radio-buttons">
+                                                            {{ formOcena.ocena.label_tag }}
+                                                            <div class="radio-inline">
+                                                            {% for radio in formOcena.ocena %}
+                                                                {{ radio.tag }} {{ radio.choice_label }}
+                                                            {% endfor %}
+                                                            </div> <br>
+                                                        </div>
+                                                        <button type="submit">Oceni</button><br>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        {% elif muster %}
+                                            <div class="zaposleni-info">
+                                                <table>
+                                                    <tr>
+                                                        <!--<td>
+                                                            <div class="col-6">
+                                                                <img src="{% static 'images/zaposleni/zaposleni_'%}{{ zaposleni.idz }}.jpg" class="slikaZaposlenog" style="border-radius: 100%; height: 200px; width: 200px; border: 2px solid white;" alt="Slika Zaposlenog">
+                                                            </div>
+                                                        </td>-->
+                                                        <td></td>
+                                                        <td>
+                                                            <div class="col-6">
+                                                                <h3>{{ muster.korisnickoime }}</h3>
+                                                                <p>Termin: {{ poslednji_termin.datum }}</p>
+                                                                <p>Vreme: {{ poslednji_termin.vreme }}</p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="row dole">
+                                                <div class="col-12">
+                                                    <form method="POST" action="{% url 'nalog' %}">
+                                                        {% csrf_token %}
+                                                        {% if poslednji_termin %}
+                                                            <div class="form-group">
+                                                                <input type="checkbox" id="musterija_termin" name="musterija_termin" value="1">
+                                                                <label for="musterija_termin">Musterija je bila na terminu</label>
+                                                            </div>
+                                                        {% endif %}
+                                                        <div class="radio-buttons">
+                                                            {{ formOcena.ocena.label_tag }}
+                                                            <div class="radio-inline">
+                                                            {% for radio in formOcena.ocena %}
+                                                                {{ radio.tag }} {{ radio.choice_label }}
+                                                            {% endfor %}
+                                                            </div> <br>
+                                                        </div>
+                                                        <button type="submit">Oceni</button><br>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <p>Ocenili ste sve prethodne termine.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-container w3-card w3-white w3-round w3-margin row"><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-calendar w3-left w3-xxlarge" aria-hidden="true" style="width:60px"></i>
+                                    </td>
+                                    <td>
+                                        <h2 class="h2-black">
+                                            ZAKAZIVANJE TERMINA
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr class="w3-clear">
+                            <div class="row">
+                                <form method="post">
+                                {% csrf_token %}
+                                {{formaZakazivanje.as_p}}
+                                <div class="row zakazivanje-button-wrapper">
+                                    <input type="submit" value="odaberi" class = "button-81">
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        {% if adminje == '1' %}
+                        	<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-money w3-left w3-xxlarge" aria-hidden="true" style="width:60px"></i>
+                                    </td>
+                                    <td>
+                                        <h2 class="h2-black">
+                                            ISPLAĆIVANJE PLATE
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr class="w3-clear">
+                            <div class="plata-forma-wrapper">
+                                <div class="row budzet">
+                                    <p>Trenutno stanje budžeta: {{ budzet.ukupanbudzet }}din</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src="{% static 'images/zaposleni/zaposleni_1.jpg' %}" class="slikaZaposlenog" id="dynamicImage">
+                                    </div>
+                                    <div class="col-6 drop-zaposleni-wrapper">
+                                        <form method="post" action="{% url 'nalog' %}">
+                                            {% csrf_token %}
+                                            {{ dropZaposleni }}
+                                            <div id="search-button-wrapper" style="display: block; margin-left: 15px">
+                                                <input type="submit" value="isplati" class = "button-81">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    
+                    </div>
+
+                    <!-- Right Column -->
+                    {% if adminje != '1' %}
+                    <div class="w3-col m2 kartice-rez">
+                        <div class="w3-card w3-round w3-white w3-center">
+                            <div class="w3-container">
+                                <p><a href="{% url 'prikazMogRasporeda' %}">MojRaspored</a></p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="w3-col m2 kartice-rez" id='{{ rez.tretman_idt.idt }}'>
+                        <div class="w3-card w3-round w3-white w3-center">
+                            <div class="w3-container">
+                                <h2 class="h2-black">ZAKAZANI TERMINI:</h2>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                
+                    {% if mojeRezervacije %}
+                    	{% for rez in mojeRezervacije %}
+                            <div class="w3-col m2 kartice-rez" id='{{ rez.tretman_idt.idt }}'>
+                                <div class="w3-card w3-round w3-white w3-center">
+                                    <div class="w3-container">
+                                        <div class="row datum-kartica-wrapper">
+                                            <div class="col-6 datum-kartica" >
+                                                <h2>{{ rez.datum.day }}</h2>
+                                                <p style="color: white">{{ rez.datum.month }} {{ rez.datum.year }}</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <br>
+                                                <p><b>{{ rez.vreme }}</b></p>
+                                                {% for tret in mojiTretmani %}
+                                                    {% if rez.tretman_idt.idt == tret.idt %}
+                                                    	<p>{{ tret.naziv }}</p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <a href="{% url 'proveraBrisanjaTermina' rez.idrez %}">otkažite</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                    	{% endfor %}
+                        {% else %}
+                        <p>Trenutno nema zakazanih termina!</p>
+                    {% endif %}                    	
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

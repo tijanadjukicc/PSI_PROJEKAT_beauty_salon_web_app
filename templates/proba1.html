@@ -1,0 +1,19 @@
+{% extends 'nalog.html' %}
+{% block izmena %}
+        <div class="izmeni-wrapper" id="izmeni-wrapper">
+        <div class="izmeni">
+            <a href="{% url 'nalog' %}" class="iks">
+                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+            </a>
+            <div class="row">
+                <h2 class="h2-black promena-h2">SLOBODNI TERMINI</h2>
+            </div>
+            {{ potvrda }}
+            <form method="post">
+                {% csrf_token %}
+                {{ forma }}
+                <input type="submit" value="rezerviši" class = "button-81">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenovnik</title>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cenovnik.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+    <script src="{% static 'js/brisanjeProzivoda.js' %}"></script>
+    <script src="{% static 'js/cenovnik.js' %}"></script>
+  </head>
+<body>
+      <div id="profile-nav">
+            <div style="right: 7%; position: absolute;">
+                <a href="{% url 'omiljeno' %}">
+                    <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+                </a>
+            </div>
+          <div style="right: 4%; position: absolute;">
+              <a href="{% url 'korpa' %}">
+                  <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+          <div style="right: 1%; position: absolute;">
+              <a href="{% url 'nalog' %}">
+                  <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+              </a>
+          </div>
+      </div>
+      <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+      <h1>
+        NAŠE USLUGE
+      </h1>
+    </div>
+    <div class="content2">
+        <div class="row cenovnik-tabela">
+            <div>
+                <h1 class="podnaslov">CENOVNIK</h1>
+{#                <h2 class="podnaslov2">bla bla</h2>#}
+            </div>
+            <br>
+            <table class="table table-striped">
+                <tr style="background-color: #b51b75;">
+                    <th>
+                        <h2>naziv</h2>
+                    </th>
+                    <th>
+                        <h2>opis</h2>
+                    </th>
+                    <th>
+                        <h2>cena</h2>
+                    </th>
+                </tr>
+                {% if tretmani %}
+                    {% for tretman in tretmani %}
+                    	<tr>
+                            <td><p><b>{{ tretman.naziv }}</b></p></td>
+                            <td><p>{{ tretman.opis }}</p></td>
+                            <td><p>{{ tretman.cena }}din</p></td>
+                        </tr>
+                    {% endfor %}
+                    
+                	
+                {% endif %} 
+            </table>
+        </div>
+        <br><br>
+        <br><br>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+.content {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.forma-wrapper {
+    border-radius: 40px;
+    width: 80%;
+    height: 50%;
+    display: flex;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    padding: 0;
+    background-color: none !important;
+}
+
+.forma {
+    width: 100% !important;
+    border-radius: 40px !important;
+    background-color: white !important;
+}
+
+.profilna {
+    width: 200px;
+    border-radius: 100px;
+    height: 200px;
+}
+
+/* table tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
+table{
+    border-collapse: separate;
+    border-spacing:60px !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal alignment */
+    justify-content: center; /* Vertical alignment */
+}

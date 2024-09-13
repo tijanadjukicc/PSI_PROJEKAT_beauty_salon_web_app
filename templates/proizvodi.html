@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proizvodi</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/proizvodi.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/searchBox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkbox-radio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/novi-proizvod.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    <script src="{% static 'js/brisanjeProzivoda.js' %}"></script>
+    <script src="{% static 'js/proizvodi.js' %}"></script>
+    <script src="{% static 'js/brisanjeProzivoda.js' %}"></script>
+    <script src="{% static 'js/searchBox.js' %}"></script>
+    <script src="{% static 'js/dodavanjeProizvoda.js' %}"></script>
+    <script src="{% static 'js/dodavanjeProfilne.js' %}"></script>
+</head>
+<body>
+    <div id="profile-nav">
+        <div style="right: 7%; position: absolute;">
+            <a href="{% url 'omiljeno' %}">
+                <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+        <div style="right: 4%; position: absolute;">
+            <a href="{% url 'korpa' %}">
+                <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+        <div style="right: 1%; position: absolute;">
+            <a href="{% url 'nalog' %}">
+                <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+    </div>
+    <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'index' %}">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'zaposleni' %}">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'oNama' %}">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="{% url 'cenovnik' %}">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+        <h1>NAŠI PROIZVODI</h1>
+    </div>
+    <!-- PRETRAGA -->
+    <div class="row search-wrapper">
+        <div class="flexbox col-6">
+            <div class="search">
+                <div>
+                    <!-- Visible input field -->
+                    <form id="search-form" method="POST" action="{% url 'proizvodi' %}">
+                        <div id="formaPretraga">
+                            {% csrf_token %}
+                            {{ formaSearch }}
+                        </div>
+                        <div id="search-button-wrapper" style="display: block; margin-left: 15px">
+                            <input type="submit" value="pretraži" class="button-69 buttons-69-roze-manji">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="filter col-6">
+{#            <button class="button-69 buttons-69-tirkizni-manji admin" id="dodaj-novi-dugme" role="button">#}
+{#                <p>dodaj novi</p>#}
+{#            </button>#}
+            <i class="fa fa-filter fa-2x" aria-hidden="true"></i>
+        </div>
+    </div>
+
+{#    <div class="novi-proizvod">#}
+{#        <div class="row novi-proizvod-content">#}
+{#            <div class="slika col-6">#}
+{#                <img src="{% static 'images/razno/f91af4ed3449731d7ea0baaa7270b605.jpg' %}" id="slika-novog" alt="">#}
+{#            </div>#}
+{#            <div class="form col-6" id="form">#}
+{#                <a href="#" class="iks-novi">#}
+{#                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>#}
+{#                </a>#}
+{#                <h1 style="color: #B51B75;">NOVI PROIZVOD</h1>#}
+{#                <form action="#">#}
+{#                    <div class="row">#}
+{#                        <div class="col-6">#}
+{#                            <div class="form-row">#}
+{#                                <div class="input-data">#}
+{#                                    <input type="text" required id="naziv-proizvoda">#}
+{#                                    <div class="underline"></div>#}
+{#                                    <label for="naziv-proizvoda"><p>Naziv proizvoda</p></label>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-6">#}
+{#                            <div class="form-row">#}
+{#                                <div class="input-data">#}
+{#                                    <input type="text" required id="kategorija-proizvoda">#}
+{#                                    <div class="underline"></div>#}
+{#                                    <label for="kategorija-proizvoda"><p>Kategorija</p></label>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-row">#}
+{#                        <div class="input-data">#}
+{#                            <input type="text" required id="opis-proizvoda">#}
+{#                            <div class="underline"></div>#}
+{#                            <label for="opis-proizvoda"><p>Opis proizvoda</p></label>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row">#}
+{#                        <div class="form-row col-6">#}
+{#                            <div class="input-data">#}
+{#                                <br>#}
+{#                                <input type="number" id="cena-proizvoda" name="cena-proizvoda" min="0" placeholder="0">#}
+{#                                <label for="cena-proizvoda"><p>Cena proizvoda <br></p></label>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-6 izaberi-sliku">#}
+{#                            <br><br>#}
+{#                            <label class="button-81">#}
+{#                                <input type="file" name="slika" accept="image/*" id="input-image">#}
+{#                                Izaberite sliku#}
+{#                            </label>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <div class="row submit-wrapper">#}
+{#                        <input type="submit" value="Dodajte proizvod" class="button-69 buttons-69-tirkizni" id="product-submit">#}
+{#                    </div>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+    {{ jedanProizvod }}
+
+    <!-- FILTRIRANJE - MENI -->
+    <div id="filter-menu">
+        <h2 style="color: black;">Filtrirajte pretragu</h2>
+        <hr>
+        <div class="filter-columns">
+            <div class="vrste-proizvoda">
+                <form method="POST" action="{% url 'proizvodi' %}">
+                    {% csrf_token %}
+                    {{ formaKategorije.as_p }}
+                    <div class="row button-filter-wrapper">
+                        <input type="submit" value="primeni" class="button-69 buttons-69-roze-manji" style="text-align: center">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+       <div class="kartice-proizvoda">
+        <section class="articles">
+            {% if proizvodi %}
+                {% for proiz in proizvodi %}
+                    <article id="kartica0" class="admin krema">
+                        <a href="{% url 'add_to_favorites' proiz.idp %}" class="love">
+                            <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <div class="article-wrapper">
+                            <figure>
+                                <img src="{% static 'images/proizvodi/slika_' %}{{ proiz.idp }}.jpg" alt="slikaProizvoda">
+                            </figure>
+                            <div class="article-body">
+                                <h3 class="naziv h2-black">{{ proiz.naziv }}</h3>
+                                <p>{{ proiz.opis }}</p>
+{#                                <table class="ocena-i-cena">#}
+{#                                    <tr>#}
+{#                                        <td class="cena">#}
+{#                                            <h3 style="color: black;">CENA<br>{{ proiz.cena }}din</h3>#}
+{#                                        </td>#}
+{#                                    </tr>#}
+{#                                </table>#}
+                                <table class="ocena-i-cena">
+                                    <tr>
+                                      <td class="cena">
+                                        <h3 style="color: black;">
+                                          CENA<br>{{ proiz.cena }}din
+                                        </h3>
+                                      </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <hr>
+                                <div class="ocena-i-cena-dugmici">
+                                    <form method="POST" action="{% url 'add_to_cart' proiz.idp %}">
+                                        {% csrf_token %}
+                                        <button value='dugmeKupi'type="submit" class="button-69 buttons-69-tirkizni-manji" role="button">Kupi</button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>

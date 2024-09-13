@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+.flexbox {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.search #formaPretraga {
+  display: inline-block;
+  position: relative;
+}
+
+.search #formaPretraga:after {
+  content: "";
+  background: black;
+  width: 4px;
+  height: 13px;
+  position: absolute;
+  top: 19px;
+  right: 0px;
+  transform: rotate(140deg);
+  border-radius: 0;
+  border-radius: 2px;
+}
+
+.search #formaPretraga input {
+  color: black !important;
+  font-size: 14px !important;
+  background: transparent !important;
+  width: 20px !important; /* small circle */
+  height: 20px !important; /* small circle */
+  padding: 10px !important;
+  border: solid 3px black !important;
+  outline: none !important;
+  border-radius: 50% !important; /* make it circular */
+  transition: width 0.5s, border-radius 0.5s, padding 0.5s !important;
+}
+
+.search #formaPretraga input::placeholder {
+  color: black !important;
+  opacity: 0 !important;
+  transition: opacity 150ms ease-out !important;
+}
+
+.search  #formaPretraga input:focus::placeholder {
+  opacity: 1 !important;
+}
+
+.search #formaPretraga input:hover,
+.search #formaPretraga input.form:focus,
+.search #formaPretraga input:not(:placeholder-shown) {
+  width: 250px !important; /* expand to rectangular */
+  border-radius: 35px !important; /* change border-radius for rectangular */
+  padding: 10px !important; /* ensure padding is consistent */
+}
+
+.search-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: whitesmoke;
+  border-bottom: 2px solid lightgray;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.buttons-69-roze-manji {
+  height: 45px !important;
+  line-height: 30px !important;
+  width: 70px !important;
+  text-align: center !important;
+}
+
+.buttons-69-roze-manji p {
+  font-size: 14px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+.filter {
+  display: flex;
+  justify-content: right;
+}
+
+.filter i {
+  cursor: pointer !important;
+  margin: 15px !important;
+}
+
+/* filter menu */
+#filter-menu {
+  position: absolute !important;
+  z-index: 4000 !important;
+  background-color: white !important;
+  height: auto !important;
+  width: 650px !important;
+  padding: 1% !important;
+  border-radius: 50px !important;
+  right: 2% !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+}
+
+.filter-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+}
+
+.vrste-proizvoda td,
+.sortiranje td {
+  padding: 7px !important;
+  padding-bottom: 0 !important;
+}
+
+.button-filter-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+}
+
+#search-form {
+  display: flex;
+  flex-direction: row;
+}

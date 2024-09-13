@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shake.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+{#    <!-- <script src="{% static 'js/podesavanjeVisine-Login.js' %}"></script> -->#}
+    <script src="{% static 'js/regSlika.js' %}"></script>
+
+</head>
+<body>
+    <div id="profile-nav">
+        <div style="right: 7%; position: absolute;">
+            <a href="omiljeno.html">
+                <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+        <div style="right: 4%; position: absolute;">
+            <a href="korpa.html">
+                <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+        <div style="right: 1%; position: absolute;">
+            <a href="nalog.html">
+                <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+    </div>
+    <nav id="menu">
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="index.html">Početna</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="zaposleni.html">Zaposleni</a>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="proizvodi.html">Naši proizvodi</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="oNama.html">O nama</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="cenovnik.html">Cenovnik</a>
+            </div>
+        </div>
+    </nav>
+    <div class="naslov">
+      <h1></h1>
+    </div>
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer0" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer1" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer2" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer3" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer4" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer5" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer6" class="shaker">
+    <img src="{% static 'images/dryer0.webp' %}" id="dryer7" class="shaker">
+    <div class="content">
+        <div class="login-form row">
+            <div class="slika col-6">
+                <img src="{% static 'images/logo/Tasa logo beli.jpg' %}" id="img">
+            </div>
+            <div class="forma col-6" id="form">
+                <h1 style="color: #8ef6e4;">Zaboravili ste lozinku? Unesite svoje korisnicko ime</h1>
+                <form method="POST" action="{% url 'zaboravljena_lozinka' %}">
+                    {% csrf_token %}
+                    <div class="form-row">
+                       <div class="input-data">
+                          <input type="text" name="username" required id="username">
+                          <div class="underline"></div>
+                          <label for="username"><p>Unesite vase korisnicko ime</p></label>
+                       </div>
+                    </div>
+                    <br>
+                    <div class="row predaja">
+                        <input type="submit" value="Potvrdi" class="button-69 buttons-69-tirkizni">
+                    </div>
+                    <br>
+                    <div class="form-row submit-btn row registracija">
+                        <div class="col-6">
+                            <a href="registracija.html"><p>Registracija</p></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="registracijaZaposleni.html"><p>Registracija - zaposleni</p></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

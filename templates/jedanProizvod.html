@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proizvod</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jedanProizvod.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+  </head>
+<body>
+    <div class="content overlay">
+        <div class="login-form row">
+            <div class="content-text">
+                <h2 class="podnaslov4">
+                    {{ proiz.naziv }}
+                </h2>
+                <br>
+                <p class="opis">{{ proiz.opis }}</p>
+                <p class="opis">{{ proiz.cena }}</p>
+                <a href="{% url 'proizvodi' %}"><button class="button-69 buttons-69-tirkizni-manji" role="button">Kupi</button></a>
+                </div>
+            <div class="div-slika">
+                <a href="{% url 'proizvodi' %}" class="iks">
+                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </a>
+                <img src="{% static 'images/proizvodi/slika_' %}{{ proiz.idp }}.jpg" alt="slikaProizvoda" />
+            </div>
+        </div>
+
+    </div>
+  </div>
+</body>
+</html>

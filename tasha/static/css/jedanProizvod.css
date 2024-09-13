@@ -1,0 +1,120 @@
+.div-slika {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 0%;
+}
+
+.div-slika img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    z-index: 2000;
+}
+
+.content-text {
+    background-color: whitesmoke;
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    color: #B51B75;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Crna boja sa 50% providnosti */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centar {
+     
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.login-form {
+    /* background-color: white; */
+    border-radius: 40px;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    padding: 0;
+    overflow: hidden;
+}
+
+*,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+  }
+  
+a:focus {
+    outline: 1px dotted #28666e;
+  }
+
+.iks {
+    position: absolute;
+    color: #28666e;
+    right: 5%;
+    top: 2%;
+    font-size: 20px;
+    text-decoration: none; /* Uklanja podvlačenje linka */
+    z-index: 99999;
+}
+
+  .iks:hover {
+    transform: scale(1.5);
+  }

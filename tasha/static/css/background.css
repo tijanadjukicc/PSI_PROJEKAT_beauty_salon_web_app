@@ -1,0 +1,11 @@
+body {
+    background:radial-gradient(ellipse at center, #FFB38E 0%, #FF8E8F 35%, #E178C5);
+  }
+  
+body, html {
+    margin: 0;
+    padding: 0;
+    /* height: auto; */
+    overflow-x: hidden;
+    width: 100%;
+}

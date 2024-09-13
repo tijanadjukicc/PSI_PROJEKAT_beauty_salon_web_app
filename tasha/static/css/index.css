@@ -1,0 +1,227 @@
+/* // best seen at 1500px or less */
+
+body {
+  background:radial-gradient(ellipse at center, #FFB38E 0%, #FF8E8F 35%, #E178C5);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    /* height: auto; */
+    overflow-x: hidden;
+  }
+
+.content {
+    display: flex;
+    flex-direction: column; /* Postavljanje elemenata u kolonu */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    order: 5;
+    margin: 0;
+    padding: 0;
+}
+
+.najbolje-ocenjen-zaposleni {
+    order: 4;
+    margin: 0;
+    padding: 0;
+}
+
+.najbolje-ocenjen-proizvod {
+    order: 3;
+    margin: 0;
+    padding: 0;
+}
+
+.wavy-div {
+    order: 2; /* Postavljanje redosleda elementa */
+}
+  
+.header{
+    margin-top: 3%;
+    padding-left: 7%;
+    order: 1; /* Postavljanje redosleda elementa */
+}
+
+#dryer0 {
+    height: 300px;
+    top: 50%;
+    right: 5%;
+    position: absolute;
+    margin: 0;
+}
+
+#dryer1 {
+    height: 300px;
+    top: 40%;
+    right: 25%;
+    position: absolute;
+    margin: 0;
+}
+
+#dryer2 {
+    height: 300px;
+    top: 15%;
+    right: 15%;
+    position: absolute;
+    margin: 0;
+}
+
+#dryer3 {
+    height: 300px;
+    top: -5%;
+    right: 3%;
+    position: absolute;
+    margin: 0;
+}
+
+#dryer4 {
+    height: 300px;
+    top: 66%;
+    right: 33%;
+    position: absolute;
+    margin: 0;
+}
+
+#dryer5 {
+    height: 300px;
+    top: 29%;
+    right: -7%;
+    position: absolute;
+    margin: 0;
+}
+
+svg {
+    width: 100%;
+    z-index: 9999; /* Ensure it's above other elements if needed */
+}
+
+.wawy-div{
+    margin-top: 10%;
+    right: 0;
+    padding: 0;
+    width: 100%;
+}
+
+ .wavy-content {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    margin: 0;
+    z-index: 10000;
+    padding-left: 7%;
+    padding-bottom: 2%;
+} 
+
+.slika-wrapper  img{
+    width: 300px !important;
+}
+
+/* //f7f680 */
+.najbolje-ocenjen-proizvod .opis {
+    background-color: #B51B75;
+    margin: 0 !important;
+    padding: 3% !important;
+}
+
+.najbolje-ocenjen-zaposleni .opis {
+    background-color: #3b0852;
+    margin: 0 !important;
+    padding: 3% !important;
+}
+.najbolje-ocenjen-proizvod .opis h2 {
+    color: #E178C5;
+}
+
+.najbolje-ocenjen-zaposleni .opis h2 {
+    color: #E178C5;
+}
+
+.najbolje-ocenjen-proizvod .opis p {
+    color: white;
+}
+
+.najbolje-ocenjen-zaposleni .opis p {
+    color: white;
+}
+
+.najbolje-ocenjen-proizvod img {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+.najbolje-ocenjen-zaposleni img {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+
+.najbolje-ocenjen-proizvod .col-6 {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+}
+
+
+.najbolje-ocenjen-zaposleni .col-6 {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+}
+
+.cena-i-ocena-proizvoda{
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.cena-i-ocena-proizvoda td {
+    border: 2px dashed white;
+    padding: 10px;
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dugmici-red {
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.ocena-zaposlenog {
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+.ocena-zaposlenog td {
+    border: 2px dashed white;
+    padding: 10px;
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.najbolje-ocenjen-zaposleni {
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 8000;
+}
+
+.omiljeni-vreme {
+    border-collapse: separate;
+    margin: 0;
+}
+
+.omiljeni-vreme td{
+    padding: 0;
+    margin: 0;
+}

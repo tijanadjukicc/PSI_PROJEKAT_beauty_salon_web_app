@@ -1,0 +1,28 @@
+{% extends 'nalog.html' %}
+
+{% block izmena %}
+        <div class="izmeni-wrapper" id="izmeni-wrapper">
+        <div class="izmeni">
+            <a href="{% url 'nalog' %}" class="iks">
+                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+            </a>
+            <div class="row">
+                <h2 class="h2-black promena-h2">PROMENA EMAILA</h2>
+            </div>
+            <form method="POST" action="{% url 'izmenaEmail' %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" name="email" required id="email">
+                        <div class="underline"></div>
+                        <label for="username"><p>Nov email ime</p></label>
+                    </div>
+                </div>
+                <br>
+                <div class="row submit-wrapper">
+                    <input type="submit" value="Primenite" class="button-69 buttons-69-roze-manji" id="product-submit">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

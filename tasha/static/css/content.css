@@ -1,0 +1,28 @@
+
+.content {
+    background-color: whitesmoke;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 0;
+    padding-top: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .content2 {
+    background-color: whitesmoke;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 0;
+    padding-top: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

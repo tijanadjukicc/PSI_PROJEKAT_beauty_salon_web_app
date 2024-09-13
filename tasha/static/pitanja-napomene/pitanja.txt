@@ -1,0 +1,2 @@
+1. zasto korisnik mora da unosi svoje podatke kada kupuje neki proizvod ako vec ima nalog
+2. obradjivanje porudzbina

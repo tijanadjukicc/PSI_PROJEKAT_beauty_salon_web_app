@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'dodatno/bootstrap.min.css' %}">
+    <script src="{% static 'dodatno/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dodatno/jquery-1.11.3.min.js' %}"></script>
+    
+    <link rel="icon" type="images/x-icon" href="{% static 'images/logo/Tasa_logo.png' %}" />
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registracija.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+    
+    <script src="{% static 'js/dodavanjeProfilne.js' %}"></script>
+
+
+</head>
+<body>
+    <div id="profile-nav">
+        <div style="right: 7%; position: absolute;">
+            <a href="{% url 'omiljeno' %}">
+                <i class="fa fa-heart fa-2x" aria-hidden="true" style="color:white;"></i>
+            </a>
+        </div>
+      <div style="right: 4%; position: absolute;">
+          <a href="{% url 'korpa' %}">
+              <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+      <div style="right: 1%; position: absolute;">
+          <a href="{% url 'nalog' %}">
+              <i class="fa fa-user fa-2x" aria-hidden="true" style="color:white;"></i>
+          </a>
+      </div>
+    </div>
+    <nav id="menu">
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'index' %}">Početna</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'zaposleni' %}">Zaposleni</a>
+        </div>
+    </div>
+    <div class="menu-item highlight">
+        <div class="menu-text">
+            <a href="{% url 'proizvodi' %}">Naši proizvodi</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'oNama' %}">O nama</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-text">
+            <a href="{% url 'cenovnik' %}">Cenovnik</a>
+        </div>
+    </div>
+    </nav>
+    <div class="naslov">
+      <h1>
+      </h1>
+    </div>
+    <div class="content">
+        <div class="forma-wrapper row">
+            <div class="forma row" id="form">
+                <h1 style="color: #8ef6e4;">REGISTRACIJA</h1>
+                <form action="{% url 'registracijaZaposleni' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="{% static 'images/profilneRazne/profilnaLjubicasta.png' %}" alt="profilnaSlika" class="profilna" id="slika-novog"> <br>
+                                <label class="button-81">
+                                    <input type="file" name="slika" accept="image/*" id="input-image"> 
+                                    Izaberite profilnu
+                                </label>
+                                <!-- <input type="submit" value="Pošalji sliku"> -->
+                            </td>
+                            <td>
+                                <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="ime" name="ime">
+                                       <div class="underline"></div>
+                                       <label for=""><p>Ime</p></label>
+                                    </div>
+                                 </div>
+                                 <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="prezime" name="prezime">
+                                       <div class="underline"></div>
+                                       <label for=""><p>Prezime</p></label>
+                                    </div>
+                                 </div>
+                                 <div class="zanimanje-wrapper row">
+                                    <br>
+                                    <label for="zanimanje"><p>Zanimanje:</p></label>
+                                    <div id="zanimanje">
+                                       <select id="drop-zanimanje-pitanje" name="zanimanje">
+                                        <option>Frizer</option>
+                                        <option>Šminker</option>
+                                        <option>Masažer</option>
+                                        <option>Manikir i pedikir</option>
+                                        <option>Anti-age specijalista</option>
+                                        <option>Specijalista za tretmane lica i tela</option>
+                                        <option>Specijalista za depilaciju</option>
+                                      </select>
+                                    </div>
+                                 </div>
+                            </td>
+                            <td>
+                                <div class="form-row">
+                                    <div class="input-data">
+                                    <input type="text" required id="korisnickoime" name="korisnickoime">
+                                    <div class="underline"></div>
+                                    <label for=""><p>Korisničko ime</p></label>
+                                    </div>
+                                </div>
+                                 <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="e-mail" name="email">
+                                       <div class="underline"></div>
+                                       <label for=""><p>E-mail</p></label>
+                                    </div>
+                                 </div>
+                                 <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="telefon" name="telefon">
+                                       <div class="underline"></div>
+                                       <label for=""><p>Broj telefona</p></label>
+                                    </div>
+                                 </div>
+                            </td>
+                            <td>
+                                <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="lozinka" name="lozinka">
+                                       <div class="underline"></div>
+                                       <label for=""><p>Lozinka</p></label>
+                                    </div>
+                                 </div>
+                                 <div class="form-row">
+                                    <div class="input-data">
+                                       <input type="text" required id="lozinka-potvrda" name="lozinka-potvrda">
+                                       <div class="underline"></div>
+                                       <label for=""><p>Potvrda lozinke</p></label>
+                                    </div>
+                                 </div>
+                                 <div class="sig-wrapper">
+                                    <div>
+                                       <select id="drop-sig-pitanje" name="drop-sig-pitanje">
+                                        <option value="pitanje0">Omiljena boja?</option>
+                                        <option value="pitanje1">Omiljeni predmet u skoli?</option>
+                                        <option value="pitanje2">Mesto rodjenja?</option>
+                                        <option value="pitanje3">Broj obuce</option>
+                                        <option value="pitanje3">Velicina odece</option>
+                                        <option value="pitanje3">Omiljeni anime?</option>
+                                        <option value="pitanje3">Omiljeni muzicki zanr</option>
+                                        <option value="pitanje3">Omiljeni broj</option>
+                                        <option value="pitanje3">Omiljeno jelo</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-row">
+                                       <div class="input-data">
+                                          <input type="text" required id="odgovor" name="odgovor">
+                                          <div class="underline"></div>
+                                          <label for=""><p>Odgovor:</p></label>
+                                       </div>
+                                    </div>
+                                 </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div class="row">
+                        <input type="submit" value="Napravi nalog" class="button-69 buttons-69-tirkizni">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <a href="login.html"><p>Prijavljivanje</p></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
